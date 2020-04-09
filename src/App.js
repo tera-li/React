@@ -5,6 +5,7 @@ import Table from './table/table.js';
 
 function App() {
   const h1 = <h1 className="App-h1">Hello Wrold!</h1>;
+  const h2 = <h1 className="App-h1">Hi hello Star!</h1>;
   const Head = [
     {header: 'Name'},
     {header: 'Job'}
@@ -30,6 +31,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {h1}
+        {h2}
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.

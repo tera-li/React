@@ -71,7 +71,7 @@ class Table extends Component {
     };
     render() {
         const myHead = this.props.Head.map((item, index) => {
-            return <th key={index}>{item.header}</th>;
+            return <th scope="col" key={index}>{item.header}</th>;
             {/*因为使用map，返回的是一个数组，每个循环元素必须赋值一个Key值，这是唯一标识符 */}
         });
         const Body = [
@@ -89,27 +89,31 @@ class Table extends Component {
             }
           ];
         return (
-            <div>
-                <table border="0" cellSpacing="0" cellPadding="0">
-                {/* cellspacing：单元格之间的间距像素，cellpadding：单元格内容与边框之间的间距像素 */}
-                    <thead>
-                        <tr>
-                            {myHead}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{this.state.Body[0].name}</td>
-                            <td>{this.state.Body[0].job}</td>
-                        </tr>
-                    </tbody>
-                    <Child Body={Body}/>
-                </table>
-                <div>{this.state.name}</div>
-                <ChildTwo childH={this.state.childQ}/>
-                <button onClick={this.removeName}>更改Name</button>
-                <ChildLast data={this.onProps} nameP={this.nameProps} childWorld={this.nameChild}/>
-            {/*  父组件向子组件传了一个方法为data  */}
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-12">
+                        <table border="0" cellSpacing="0" cellPadding="0" className="table">
+                            {/* cellspacing：单元格之间的间距像素，cellpadding：单元格内容与边框之间的间距像素 */}
+                            <thead>
+                            <tr className="table-info">
+                                {myHead}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{this.state.Body[0].name}</td>
+                                <td>{this.state.Body[0].job}</td>
+                            </tr>
+                            </tbody>
+                            <Child Body={Body}/>
+                        </table>
+                        <div>{this.state.name}</div>
+                        <ChildTwo childH={this.state.childQ}/>
+                        <button onClick={this.removeName}>更改Name</button>
+                        <ChildLast data={this.onProps} nameP={this.nameProps} childWorld={this.nameChild}/>
+                        {/*  父组件向子组件传了一个方法为data  */}
+                    </div>
+                </div>
             </div>
         )
     }

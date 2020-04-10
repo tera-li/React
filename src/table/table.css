@@ -1,12 +1,14 @@
 table tr td{
-    border-left:1px solid #F00;
-    border-top:1px solid #F00;
+    border-left:1px solid #61dafb;
+    border-top:1px solid #61dafb;
+    color: #61dafb;
 }
 table tr th{
-    border-left:1px solid #F00;
-    border-top:1px solid #F00;
+    border-left:1px solid #61dafb;
+    border-top:1px solid #61dafb;
+    color: burlywood;
 }
 table {
-    border-right:1px solid #F00;
-    border-bottom:1px solid #F00;
+    border-right:1px solid #61dafb;
+    border-bottom:1px solid #61dafb;
 }

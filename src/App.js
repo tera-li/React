@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Table from './table/table.js';
 import Home from "./home/home.js";
+import Listen from "./Listen/Listen.js";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 // 添加router，进行单页面应用
 import Last from "./Last/last";
@@ -12,7 +13,13 @@ class App extends Component{
   constructor(props) {
     super(props);
     console.log(props);
-    this.mylist = this.props.liss.map((v,index) => {
+    const liss =  [
+      {id:0,name:"Home",link:'/',class:'nav-link'},
+      {id:1,name:"Table",link:'/table',class: 'nav-link'},
+      {id:2,name:"Last",link:'/last',class: 'nav-link'},
+      {id:3,name:"Listen",link:'/listen',class: 'nav-link'},
+    ];
+    this.mylist = liss.map((v,index) => {
       return <li className="nav-item" key={index}>
         <Link className={v.class} to={v.link} id={v.id} onClick={this.setActive}>{v.name}</Link>
       </li>
@@ -77,6 +84,9 @@ class App extends Component{
                 </Route>
                 <Route path="/last">
                   <Last/>
+                </Route>
+                <Route path="/listen">
+                  <Listen/>
                 </Route>
               </Switch>
             </Router>

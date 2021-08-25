@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  // 检测App组件及子组件存在的问题的工具 
   <React.StrictMode>
     <App />
   </React.StrictMode>,

@@ -19,6 +19,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Home home={home} todos={todos} handleOk={this.handleSetState} />
+        <hr />
         <Page />
       </div>
     );

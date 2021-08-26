@@ -6,16 +6,16 @@ export default class Home extends React.Component {
     this.props.handleOk();
   };
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { todos, home: homeTitle } = this.props;
     return (
       <div className={home.title}>
         <h1>{homeTitle}</h1>
-        <pre>
+        <div>
           {todos.map((item) => (
-            <h6 key={item.id}>{item.text}</h6>
+            <li key={item.id}>{item.text}</li>
           ))}
-        </pre>
+        </div>
         <button onClick={this.handleClick}>点击</button>
       </div>
     );

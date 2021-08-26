@@ -1,7 +1,9 @@
-import "./App.css";
 import React from "react";
+import { BrowserRouter, Link } from "react-router-dom";
+import Button from 'antd/es/button';
 import Home from "./views/home/home";
 import Page from "./views/page/page";
+import "./App.css";
 
 export default class App extends React.Component {
   state = {
@@ -18,9 +20,17 @@ export default class App extends React.Component {
     const { home, todos } = this.state;
     return (
       <div className="App">
-        <Home home={home} todos={todos} handleOk={this.handleSetState} />
-        <hr />
-        <Page />
+        <Button type="primary">Button</Button>
+        <BrowserRouter>
+          <Link to="/home">
+            {/* <Home home={home} todos={todos} handleOk={this.handleSetState} /> */}
+            home
+          </Link>
+          <Link to="/page">
+            {/* <Page /> */}
+            page
+          </Link>
+        </BrowserRouter>
       </div>
     );
   }

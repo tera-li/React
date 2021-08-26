@@ -3,7 +3,9 @@ import page from "./page.module.css";
 
 export default class Page extends React.Component {
   addDown = () => {
-    let link = document.createElement("a"); // 创建a标签
+    // 动态创建a标签，请求图片接口
+    // 转成blob，blob转成url对象，进行download下载
+    let link = document.createElement("a");
     link.style.display = "none";
     fetch("/api1/936895d2e36a248303a2127156f08378.jpeg")
       .then((res) => {
@@ -11,8 +13,7 @@ export default class Page extends React.Component {
       })
       .then((res) => {
         link.href = URL.createObjectURL(res);
-        console.log(URL.createObjectURL(res));
-        link.setAttribute("download", ""); // 添加downLoad属性
+        link.setAttribute("download", "");
         document.body.appendChild(link);
         link.click();
       });
@@ -24,9 +25,7 @@ export default class Page extends React.Component {
     return (
       <div className={page.title}>
         这是Page组件
-        <a href="#/demo1">锚点1</a>
-        <a href="#/demo2">锚点2</a>
-        <a href="#/demo3">锚点3</a>
+        <button onClick={this.addDown}>点击下载图片</button>
       </div>
     );
   }

@@ -22,9 +22,10 @@ export default class Page extends React.Component {
     // this.addDown();
   }
   render() {
+    console.log(this.props)
     return (
       <div className={page.title}>
-        这是Page组件
+        <h1>这是Page组件</h1>
         <button onClick={this.addDown}>点击下载图片</button>
       </div>
     );

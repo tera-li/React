@@ -6,7 +6,7 @@ export default class Home extends React.Component {
     this.props.handleOk();
   };
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     const { todos, home: homeTitle } = this.props;
     return (
       <div className={home.title}>

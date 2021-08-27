@@ -1,7 +1,7 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import MyNavLink from "./router/index";
-import Button from "antd/es/button";
+import { Button } from "antd";
 import Home from "./views/home/home";
 import Page from "./views/page/page";
 import "./App.css";
@@ -28,15 +28,14 @@ export default class App extends React.Component {
         <Button type="primary">
           <MyNavLink to="/page">page</MyNavLink>
         </Button>
-        <hr />
         <Switch>
+          {/* 精确匹配 */}
           <Route path="/home">
             <Home home={home} todos={todos} handleOk={this.handleSetState} />
           </Route>
-          <Route path="/home">
-            <Home home={home} todos={todos} handleOk={this.handleSetState} />
-          </Route>
+          {/* 模糊匹配 */}
           <Route path="/page" component={Page}></Route>
+          <Redirect to="/home" />
         </Switch>
       </div>
     );

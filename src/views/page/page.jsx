@@ -1,4 +1,5 @@
 import React from "react";
+import qs from 'querystring'
 import page from "./page.module.css";
 
 export default class Page extends React.Component {
@@ -23,6 +24,7 @@ export default class Page extends React.Component {
   }
   render() {
     console.log(this.props)
+    // console.log(qs.parse(this.props.location.search.slice(1)))
     return (
       <div className={page.title}>
         <h1>这是Page组件</h1>

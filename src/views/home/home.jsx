@@ -14,11 +14,11 @@ export default class Home extends React.Component {
     console.log(this.props);
     const { todos, home: homeTitle } = this.props;
     return (
-      <div className={home.title}>
+      <div>
         <Tabs defaultActiveKey="1" size={"small"} style={{ marginBottom: 32 }}>
           <TabPane tab="Tab 1" key="1">
             <h1>{homeTitle}</h1>
-            <div>
+            <div className={home.title}>
               {todos.map((item) => (
                 <li key={item.id}>{item.text}</li>
               ))}

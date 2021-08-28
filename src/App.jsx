@@ -26,7 +26,11 @@ export default class App extends React.Component {
         </Button>
 
         <Button type="primary">
-          <MyNavLink to="/page">page</MyNavLink>
+          {/* params */}
+          {/* <MyNavLink to={`/page/${1}`}>page</MyNavLink> */}
+          {/* search */}
+          {/* <MyNavLink to={`/page/?name=join&id=1`}>page</MyNavLink> */}
+          <MyNavLink to={{pathname: '/page', state: {name: 'join'}}}>page</MyNavLink>
         </Button>
         <Switch>
           {/* 精确匹配 */}
@@ -34,6 +38,9 @@ export default class App extends React.Component {
             <Home home={home} todos={todos} handleOk={this.handleSetState} />
           </Route>
           {/* 模糊匹配 */}
+          {/* params接收参数 */}
+          {/* <Route path="/page/:id" component={Page}></Route> */}
+          {/* search接收参数、state接收参数 */}
           <Route path="/page" component={Page}></Route>
           <Redirect to="/home" />
         </Switch>

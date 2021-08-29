@@ -4,6 +4,8 @@ import MyNavLink from "./router/index";
 import { Button } from "antd";
 import Home from "./views/home/home";
 import Page from "./views/page/page";
+import Message from './views/message/send'
+import Receive from './views/message/receive'
 import "./App.css";
 
 export default class App extends React.Component {
@@ -30,7 +32,15 @@ export default class App extends React.Component {
           {/* <MyNavLink to={`/page/${1}`}>page</MyNavLink> */}
           {/* search */}
           {/* <MyNavLink to={`/page/?name=join&id=1`}>page</MyNavLink> */}
-          <MyNavLink to={{pathname: '/page', state: {name: 'join'}}}>page</MyNavLink>
+          <MyNavLink to={{ pathname: "/page", state: { name: "join" } }}>
+            page
+          </MyNavLink>
+        </Button>
+        <Button type="primary">
+          <MyNavLink to="/message">message</MyNavLink>
+        </Button>
+        <Button type="primary">
+          <MyNavLink to="/receive">receive</MyNavLink>
         </Button>
         <Switch>
           {/* 精确匹配 */}
@@ -42,6 +52,8 @@ export default class App extends React.Component {
           {/* <Route path="/page/:id" component={Page}></Route> */}
           {/* search接收参数、state接收参数 */}
           <Route path="/page" component={Page}></Route>
+          <Route path="/message" component={Message}></Route>
+          <Route path="/receive" component={Receive}></Route>
           <Redirect to="/home" />
         </Switch>
       </div>

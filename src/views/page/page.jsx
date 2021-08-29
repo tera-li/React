@@ -1,5 +1,5 @@
 import React from "react";
-import qs from 'querystring'
+// import qs from 'querystring'
 import page from "./page.module.css";
 
 export default class Page extends React.Component {

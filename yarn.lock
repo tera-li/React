@@ -9890,6 +9890,13 @@
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
 
+"redux@^4.1.1":
+  "integrity" "sha1-dvHEObtCBD+YX72b8hmQ5gvWf0c="
+  "resolved" "https://registry.nlark.com/redux/download/redux-4.1.1.tgz?cache=0&sync_timestamp=1628001955619&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fredux%2Fdownload%2Fredux-4.1.1.tgz"
+  "version" "4.1.1"
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 "regenerate-unicode-properties@^8.2.0":
   "integrity" "sha1-5d5xEdZV57pgwFfb6f83yH5lzew="
   "resolved" "https://registry.nlark.com/regenerate-unicode-properties/download/regenerate-unicode-properties-8.2.0.tgz"

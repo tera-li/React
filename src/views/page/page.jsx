@@ -23,7 +23,7 @@ export default class Page extends React.Component {
     // this.addDown();
   }
   render() {
-    console.log(this.props)
+    console.log(this.props);
     // console.log(qs.parse(this.props.location.search.slice(1)))
     return (
       <div className={page.title}>

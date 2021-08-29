@@ -4,8 +4,8 @@ import MyNavLink from "./router/index";
 import { Button } from "antd";
 import Home from "./views/home/home";
 import Page from "./views/page/page";
-import Message from './views/message/send'
-import Receive from './views/message/receive'
+import Message from "./views/message/send";
+import Receive from "./views/message/receive";
 import "./App.css";
 
 export default class App extends React.Component {

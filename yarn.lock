@@ -1810,6 +1810,14 @@
   dependencies:
     "@types/node" "*"
 
+"@types/hoist-non-react-statics@^3.3.0":
+  "integrity" "sha1-ESSq/lEYy1kZd66xzqrtEHDrA58="
+  "resolved" "https://registry.nlark.com/@types/hoist-non-react-statics/download/@types/hoist-non-react-statics-3.3.1.tgz"
+  "version" "3.3.1"
+  dependencies:
+    "@types/react" "*"
+    "hoist-non-react-statics" "^3.3.0"
+
 "@types/html-minifier-terser@^5.0.0":
   "integrity" "sha1-aTsxatMj6pfu1rOO0aPMArFnK1c="
   "resolved" "https://registry.nlark.com/@types/html-minifier-terser/download/@types/html-minifier-terser-5.1.2.tgz?cache=0&sync_timestamp=1629708036407&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fhtml-minifier-terser%2Fdownload%2F%40types%2Fhtml-minifier-terser-5.1.2.tgz"
@@ -1877,10 +1885,34 @@
   "resolved" "https://registry.nlark.com/@types/prettier/download/@types/prettier-2.3.2.tgz?cache=0&sync_timestamp=1629708789840&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fprettier%2Fdownload%2F%40types%2Fprettier-2.3.2.tgz"
   "version" "2.3.2"
 
+"@types/prop-types@*":
+  "integrity" "sha1-/PcgXCXf95Xuea8eMNosl5CAjxE="
+  "resolved" "https://registry.nlark.com/@types/prop-types/download/@types/prop-types-15.7.4.tgz?cache=0&sync_timestamp=1629708829833&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fprop-types%2Fdownload%2F%40types%2Fprop-types-15.7.4.tgz"
+  "version" "15.7.4"
+
 "@types/q@^1.5.1":
   "integrity" "sha1-daKo59irSyMEFFBdkjNdHctTpt8="
   "resolved" "https://registry.nlark.com/@types/q/download/@types/q-1.5.5.tgz"
   "version" "1.5.5"
+
+"@types/react-redux@^7.1.16":
+  "integrity" "sha1-K/j9Vuuq5nmpDr/+SP9zcXxDjgQ="
+  "resolved" "https://registry.nlark.com/@types/react-redux/download/@types/react-redux-7.1.18.tgz?cache=0&sync_timestamp=1629708952096&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Freact-redux%2Fdownload%2F%40types%2Freact-redux-7.1.18.tgz"
+  "version" "7.1.18"
+  dependencies:
+    "@types/hoist-non-react-statics" "^3.3.0"
+    "@types/react" "*"
+    "hoist-non-react-statics" "^3.3.0"
+    "redux" "^4.0.0"
+
+"@types/react@*":
+  "integrity" "sha1-jyqF6BgKQ7V5ZrI30mopSB2syZE="
+  "resolved" "https://registry.nlark.com/@types/react/download/@types/react-17.0.19.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Freact%2Fdownload%2F%40types%2Freact-17.0.19.tgz"
+  "version" "17.0.19"
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    "csstype" "^3.0.2"
 
 "@types/resolve@0.0.8":
   "integrity" "sha1-8mB00jjgJlnjI84aE9BB7uKA4ZQ="
@@ -1888,6 +1920,11 @@
   "version" "0.0.8"
   dependencies:
     "@types/node" "*"
+
+"@types/scheduler@*":
+  "integrity" "sha1-GmL4lSVyPd4kuhsBsJK/XfitTTk="
+  "resolved" "https://registry.nlark.com/@types/scheduler/download/@types/scheduler-0.16.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fscheduler%2Fdownload%2F%40types%2Fscheduler-0.16.2.tgz"
+  "version" "0.16.2"
 
 "@types/source-list-map@*":
   "integrity" "sha1-AHiDYGP/rxdBI0m7o2QIfgrALsk="
@@ -4050,6 +4087,11 @@
   dependencies:
     "cssom" "~0.3.6"
 
+"csstype@^3.0.2":
+  "integrity" "sha1-0iZqeScp+yJ80hb7Vy9Dco4a00A="
+  "resolved" "https://registry.nlark.com/csstype/download/csstype-3.0.8.tgz"
+  "version" "3.0.8"
+
 "cyclist@^1.0.1":
   "integrity" "sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk="
   "resolved" "https://registry.nlark.com/cyclist/download/cyclist-1.0.1.tgz"
@@ -5715,7 +5757,7 @@
     "minimalistic-assert" "^1.0.0"
     "minimalistic-crypto-utils" "^1.0.1"
 
-"hoist-non-react-statics@^3.1.0":
+"hoist-non-react-statics@^3.1.0", "hoist-non-react-statics@^3.3.0", "hoist-non-react-statics@^3.3.2":
   "integrity" "sha1-7OCsr3HWLClpwuxZ/v9CpLGoW0U="
   "resolved" "https://registry.nlark.com/hoist-non-react-statics/download/hoist-non-react-statics-3.3.2.tgz"
   "version" "3.3.2"
@@ -9730,6 +9772,11 @@
   "resolved" "https://registry.nlark.com/react-is/download/react-is-16.13.1.tgz?cache=0&sync_timestamp=1629908196814&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-is%2Fdownload%2Freact-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-is@^16.13.1":
+  "integrity" "sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ="
+  "resolved" "https://registry.nlark.com/react-is/download/react-is-16.13.1.tgz"
+  "version" "16.13.1"
+
 "react-is@^16.6.0":
   "integrity" "sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ="
   "resolved" "https://registry.nlark.com/react-is/download/react-is-16.13.1.tgz?cache=0&sync_timestamp=1629908196814&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-is%2Fdownload%2Freact-is-16.13.1.tgz"
@@ -9749,6 +9796,18 @@
   "integrity" "sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA="
   "resolved" "https://registry.nlark.com/react-is/download/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-redux@^7.2.4":
+  "integrity" "sha1-HrtHQDK3LYBt4uBRnNB3YeIi4iU="
+  "resolved" "https://registry.nlark.com/react-redux/download/react-redux-7.2.4.tgz"
+  "version" "7.2.4"
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    "@types/react-redux" "^7.1.16"
+    "hoist-non-react-statics" "^3.3.2"
+    "loose-envify" "^1.4.0"
+    "prop-types" "^15.7.2"
+    "react-is" "^16.13.1"
 
 "react-refresh@^0.8.3", "react-refresh@>=0.8.3 <0.10.0":
   "integrity" "sha1-ch1GV2ctQAxePHXQY8SoX7LV1o8="
@@ -9784,7 +9843,7 @@
     "tiny-invariant" "^1.0.2"
     "tiny-warning" "^1.0.0"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^17.0.2", "react@>= 16.9.0", "react@>=15", "react@>=16.0.0", "react@>=16.9.0", "react@17.0.2":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^17.0.2", "react@>= 16.9.0", "react@>=15", "react@>=16.0.0", "react@>=16.9.0", "react@17.0.2":
   "integrity" "sha1-0LXMUW0p6z7uOD91tihkz7aAADc="
   "resolved" "https://registry.nlark.com/react/download/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -9890,7 +9949,12 @@
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
 
-"redux@^4.1.1":
+"redux-thunk@^2.3.0":
+  "integrity" "sha1-UcLBmhhe1Rh6qpotCLZm0NZGdiI="
+  "resolved" "https://registry.nlark.com/redux-thunk/download/redux-thunk-2.3.0.tgz"
+  "version" "2.3.0"
+
+"redux@^4.0.0", "redux@^4.1.1":
   "integrity" "sha1-dvHEObtCBD+YX72b8hmQ5gvWf0c="
   "resolved" "https://registry.nlark.com/redux/download/redux-4.1.1.tgz?cache=0&sync_timestamp=1628001955619&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fredux%2Fdownload%2Fredux-4.1.1.tgz"
   "version" "4.1.1"

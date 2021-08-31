@@ -9723,9 +9723,9 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
-"react-dev-utils@^11.0.3":
-  "integrity" "sha1-p8y2Alehyi4O/nqD445nANF6o3o="
-  "resolved" "https://registry.nlark.com/react-dev-utils/download/react-dev-utils-11.0.4.tgz?cache=0&sync_timestamp=1628099167717&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-dev-utils%2Fdownload%2Freact-dev-utils-11.0.4.tgz"
+"react-dev-utils@^11.0.4":
+  "integrity" "sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A=="
+  "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.4.tgz"
   "version" "11.0.4"
   dependencies:
     "@babel/code-frame" "7.10.4"

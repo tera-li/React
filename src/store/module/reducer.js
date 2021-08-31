@@ -1,7 +1,7 @@
-import { SETDATA } from "./constant";
+import { SETDATA, SETDATARECEIVE } from "./constant";
 export const reducer = (preciousState = 11, action) => {
   console.log(action);
-  if (action.type === SETDATA) {
+  if (action.type === SETDATARECEIVE) {
     return action.data;
   }
   return preciousState;

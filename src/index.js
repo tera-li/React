@@ -1,20 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
-// import store from './store/store'
+import store from "./store/store";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-// import { Provider } from 'react-redux'
+import { Provider } from "react-redux";
 import "antd/dist/antd.css";
 import "./index.css";
 
 ReactDOM.render(
   // 检测App组件及子组件存在的问题的工具
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );
 // redux监听整个App组件，

@@ -10,7 +10,7 @@ import { reducerAction, reducerActionReceive } from "../../store/module/count_ac
 // 这里连接UI组件，store的连接通过在容器组件上传入props得到
 // 如：<Count store={store}/>
 export default connect(
-    (state) => ({count: state}),
+    (state) => ({count1: state}),
     // (dispatch) => ({
     //     add: number => dispatch(reducerAction(number))
     // })

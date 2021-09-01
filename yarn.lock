@@ -9949,12 +9949,17 @@
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
 
+"redux-devtools-extension@^2.13.9":
+  "integrity" "sha512-cNJ8Q/EtjhQaZ71c8I9+BPySIBVEKssbPpskBfsXqb8HJ002A3KRVHfeRzwRo6mGPqsm7XuHTqNSNeS1Khig0A=="
+  "resolved" "https://registry.npmjs.org/redux-devtools-extension/-/redux-devtools-extension-2.13.9.tgz"
+  "version" "2.13.9"
+
 "redux-thunk@^2.3.0":
   "integrity" "sha1-UcLBmhhe1Rh6qpotCLZm0NZGdiI="
   "resolved" "https://registry.nlark.com/redux-thunk/download/redux-thunk-2.3.0.tgz"
   "version" "2.3.0"
 
-"redux@^4.0.0", "redux@^4.1.1":
+"redux@^3.1.0 || ^4.0.0", "redux@^4.0.0", "redux@^4.1.1":
   "integrity" "sha1-dvHEObtCBD+YX72b8hmQ5gvWf0c="
   "resolved" "https://registry.nlark.com/redux/download/redux-4.1.1.tgz?cache=0&sync_timestamp=1628001955619&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fredux%2Fdownload%2Fredux-4.1.1.tgz"
   "version" "4.1.1"

@@ -9,14 +9,15 @@ import "antd/dist/antd.css";
 import "./index.css";
 
 ReactDOM.render(
-  // 检测App组件及子组件存在的问题的工具
-  <Provider store={store}>
-    <React.StrictMode>
+  //检测App组件及子组件存在的问题的工具
+  <React.StrictMode>
+    {/* 使用provider包裹app，让App组件及所有后代组件都能接收到store */}
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.StrictMode>
-  </Provider>,
+    </Provider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 // redux监听整个App组件，

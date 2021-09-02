@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense } from "react";
+import { Component, PureComponent, lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import MyNavLink from "./router/index";
 import { Button } from "antd";
@@ -15,7 +15,11 @@ const Message = lazy(() => import("./views/message/send"));
 const Receive = lazy(() => import("./views/message/receive"));
 const Hooks = lazy(() => import("./views/hooks"));
 
-export default class App extends Component {
+/**
+ * 使用PureComponent时state和props的更新，
+ * 如果是相同引用的更新，则不会让shouldComponentUpdate返回true
+ *  */ 
+export default class App extends PureComponent {
   state = {
     home: "这是home组件",
     todos: [
@@ -28,14 +32,16 @@ export default class App extends Component {
     // this.setState({ home: '这是改变后的home组件' }, () => {
     //   console.log('修改完毕')
     // })
+    this.state.todos.push({ id: 3, text: "json2", done: false })
     this.setState(
-      (state) => ({ home: state.home + 1 }),
+      (state) => ({ todos: state.todos }),
       () => {
         console.log("修改完毕");
       }
     );
   };
   render() {
+    console.log('render-app');
     const { home, todos } = this.state;
     return (
       <div className="App">

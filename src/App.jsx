@@ -9,10 +9,11 @@ import { Button } from "antd";
 import "./App.css";
 
 // 懒加载，需要配合suspense，使用fallback应急
-const Home = lazy(() => import('./views/home/home'))
-const Page = lazy(() => import('./views/page/page'))
-const Message = lazy(() => import('./views/message/send'))
-const Receive = lazy(() => import('./views/message/receive'))
+const Home = lazy(() => import("./views/home/home"));
+const Page = lazy(() => import("./views/page/page"));
+const Message = lazy(() => import("./views/message/send"));
+const Receive = lazy(() => import("./views/message/receive"));
+const Hooks = lazy(() => import("./views/hooks"));
 
 export default class App extends Component {
   state = {
@@ -27,9 +28,12 @@ export default class App extends Component {
     // this.setState({ home: '这是改变后的home组件' }, () => {
     //   console.log('修改完毕')
     // })
-    this.setState( state => ({home: state.home + 1}), () => {
-      console.log('修改完毕')
-    })
+    this.setState(
+      (state) => ({ home: state.home + 1 }),
+      () => {
+        console.log("修改完毕");
+      }
+    );
   };
   render() {
     const { home, todos } = this.state;
@@ -54,23 +58,26 @@ export default class App extends Component {
         <Button type="primary">
           <MyNavLink to="/receive">receive</MyNavLink>
         </Button>
+        <Button type="primary">
+          <MyNavLink to="/hooks">hooks</MyNavLink>
+        </Button>
         <Suspense fallback={<h1>loading....</h1>}>
-        <Switch>
-          {/* 精确匹配 */}
-          <Route path="/home">
-            <Home home={home} todos={todos} handleOk={this.handleSetState} />
-          </Route>
-          {/* 模糊匹配 */}
-          {/* params接收参数 */}
-          {/* <Route path="/page/:id" component={Page}></Route> */}
-          {/* search接收参数、state接收参数 */}
-          <Route path="/page" component={Page}></Route>
-          <Route path="/message" component={Message}></Route>
-          <Route path="/receive" component={Receive}></Route>
-          <Redirect to="/home" />
-        </Switch>
+          <Switch>
+            {/* 精确匹配 */}
+            <Route path="/home">
+              <Home home={home} todos={todos} handleOk={this.handleSetState} />
+            </Route>
+            {/* 模糊匹配 */}
+            {/* params接收参数 */}
+            {/* <Route path="/page/:id" component={Page}></Route> */}
+            {/* search接收参数、state接收参数 */}
+            <Route path="/page" component={Page}></Route>
+            <Route path="/message" component={Message}></Route>
+            <Route path="/receive" component={Receive}></Route>
+            <Route path="/hooks" component={Hooks}></Route>
+            <Redirect to="/home" />
+          </Switch>
         </Suspense>
-      
       </div>
     );
   }

@@ -1,14 +1,20 @@
-import React from "react";
+import { Component, lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import MyNavLink from "./router/index";
 import { Button } from "antd";
-import Home from "./views/home/home";
-import Page from "./views/page/page";
-import Message from "./views/message/send";
-import Receive from "./views/message/receive";
+// import Home from "./views/home/home";
+// import Page from "./views/page/page";
+// import Message from "./views/message/send";
+// import Receive from "./views/message/receive";
 import "./App.css";
 
-export default class App extends React.Component {
+// 懒加载，需要配合suspense，使用fallback应急
+const Home = lazy(() => import('./views/home/home'))
+const Page = lazy(() => import('./views/page/page'))
+const Message = lazy(() => import('./views/message/send'))
+const Receive = lazy(() => import('./views/message/receive'))
+
+export default class App extends Component {
   state = {
     home: "这是home组件",
     todos: [
@@ -17,7 +23,13 @@ export default class App extends React.Component {
     ],
   };
   handleSetState = () => {
-    console.log(this);
+    // 回调函数将在setState更新完毕后调用，在componentDidUpdate后调用
+    // this.setState({ home: '这是改变后的home组件' }, () => {
+    //   console.log('修改完毕')
+    // })
+    this.setState( state => ({home: state.home + 1}), () => {
+      console.log('修改完毕')
+    })
   };
   render() {
     const { home, todos } = this.state;
@@ -42,6 +54,7 @@ export default class App extends React.Component {
         <Button type="primary">
           <MyNavLink to="/receive">receive</MyNavLink>
         </Button>
+        <Suspense fallback={<h1>loading....</h1>}>
         <Switch>
           {/* 精确匹配 */}
           <Route path="/home">
@@ -56,6 +69,8 @@ export default class App extends React.Component {
           <Route path="/receive" component={Receive}></Route>
           <Redirect to="/home" />
         </Switch>
+        </Suspense>
+      
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import { Provider } from "./context";
 import Child from "./child.jsx";
+import ContextValue from "./contextValue";
 
 export default function Hooks() {
   /**
@@ -49,6 +50,7 @@ export default function Hooks() {
       <Provider value={111}>
         <Child />
       </Provider>
+      <ContextValue></ContextValue>
     </React.Fragment>
   );
 }

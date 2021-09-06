@@ -18,8 +18,11 @@ const Hooks = lazy(() => import("./views/hooks"));
 /**
  * 使用PureComponent时state和props的更新，
  * 如果是相同引用的更新，则不会让shouldComponentUpdate返回true
- *  */ 
-export default class App extends PureComponent {
+ * 什么时候使用？
+ *    1、父组件更新状态，子组件没有state或props的关联，
+ *       由于父组件render，子组件也会随之render，导致效率低（在子组件使用PureComponent）
+ *  */
+export default class App extends Component {
   state = {
     home: "这是home组件",
     todos: [

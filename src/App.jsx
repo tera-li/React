@@ -15,6 +15,7 @@ const Message = lazy(() => import("./views/message/send"));
 const Receive = lazy(() => import("./views/message/receive"));
 const Hooks = lazy(() => import("./views/hooks"));
 const Error = lazy(() => import("./views/error"));
+const Refs = lazy(() => import("./views/refs"));
 
 /**
  * 使用PureComponent时state和props的更新，
@@ -74,6 +75,9 @@ export default class App extends Component {
         <Button type="primary">
           <MyNavLink to="/error">error</MyNavLink>
         </Button>
+          <Button type="primary">
+          <MyNavLink to="/refs">refs</MyNavLink>
+        </Button>
         <Suspense fallback={<h1>loading....</h1>}>
           <Switch>
             {/* 精确匹配 */}
@@ -89,6 +93,7 @@ export default class App extends Component {
             <Route path="/receive" component={Receive} />
             <Route path="/hooks" component={Hooks} />
             <Route path="/error" component={Error} />
+            <Route path="/refs" component={Refs} />
             <Redirect to="/home" />
           </Switch>
         </Suspense>

@@ -9,11 +9,12 @@ import { reducerActionReceive } from "../../store/action/receive";
 
 class Count extends Component {
   handleSend = () => {
-    this.props.addReceive(this.props.count + 1);
+    this.props.addReceive(this.props.number + 1);
   };
   render() {
     return (
       <div>
+        <h1>{this.props.number}</h1>
         <h1>{this.props.count}</h1>
         <Button type="primary" onClick={this.handleSend}>
           点击调用
@@ -27,7 +28,7 @@ class Count extends Component {
 // 这里连接UI组件，store的连接通过在容器组件上传入props得到
 // 如：<Count store={store}/>
 export default connect(
-  (state) => ({ count: state.receiveNumber }),
+  (state) => ({ number: state.sendNumber, count: state.receiveNumber }),
   // (dispatch) => ({
   //     add: number => dispatch(reducerActionReceive(number))
   // })

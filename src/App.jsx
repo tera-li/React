@@ -1,4 +1,5 @@
-import { Component, PureComponent, lazy, Suspense } from "react";
+// PureComponent
+import { Component, lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import MyNavLink from "./router/index";
 import { Button } from "antd";
@@ -11,11 +12,15 @@ import "./App.css";
 // 懒加载，需要配合suspense，使用fallback应急
 const Home = lazy(() => import("./views/home/home"));
 const Page = lazy(() => import("./views/page/page"));
-const Message = lazy(() => import("./views/message/send"));
-const Receive = lazy(() => import("./views/message/receive"));
-const Hooks = lazy(() => import("./views/hooks"));
-const Error = lazy(() => import("./views/error"));
-const Refs = lazy(() => import("./views/refs"));
+
+const lazyList = {
+  Message: lazy(() => import("./views/message/send")),
+  Receive: lazy(() => import("./views/message/receive")),
+  Hooks: lazy(() => import("./views/hooks")),
+  Error: lazy(() => import("./views/error")),
+  Refs: lazy(() => import("./views/refs")),
+  HOC: lazy(() => import("./views/hoc")),
+}
 
 /**
  * 使用PureComponent时state和props的更新，
@@ -47,6 +52,7 @@ export default class App extends Component {
   };
   render() {
     console.log('render-app');
+    console.log(Object.entries(lazyList));
     const { home, todos } = this.state;
     return (
       <div className="App">
@@ -63,21 +69,15 @@ export default class App extends Component {
             page
           </MyNavLink>
         </Button>
-        <Button type="primary">
-          <MyNavLink to="/message">message</MyNavLink>
-        </Button>
-        <Button type="primary">
-          <MyNavLink to="/receive">receive</MyNavLink>
-        </Button>
-        <Button type="primary">
-          <MyNavLink to="/hooks">hooks</MyNavLink>
-        </Button>
-        <Button type="primary">
-          <MyNavLink to="/error">error</MyNavLink>
-        </Button>
-          <Button type="primary">
-          <MyNavLink to="/refs">refs</MyNavLink>
-        </Button>
+        {
+          Object.keys(lazyList).map((item) => {
+            return (
+              <Button type="primary" key={item}>
+                <MyNavLink to={'/' + item}>{item}</MyNavLink>
+              </Button>
+            )
+          })
+        }
         <Suspense fallback={<h1>loading....</h1>}>
           <Switch>
             {/* 精确匹配 */}
@@ -89,11 +89,13 @@ export default class App extends Component {
             {/* <Route path="/page/:id" component={Page}></Route> */}
             {/* search接收参数、state接收参数 */}
             <Route path="/page" component={Page} />
-            <Route path="/message" component={Message} />
-            <Route path="/receive" component={Receive} />
-            <Route path="/hooks" component={Hooks} />
-            <Route path="/error" component={Error} />
-            <Route path="/refs" component={Refs} />
+            {
+              Object.entries(lazyList).map((item) => {
+                return (
+                  <Route key={item[0]} path={'/' + item[0]} component={item[1]} />
+                )
+              })
+            }
             <Redirect to="/home" />
           </Switch>
         </Suspense>

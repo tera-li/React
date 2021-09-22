@@ -3,6 +3,7 @@ import { Button } from "antd";
 import {MyContext, Provider} from "./context";
 import Child from "./child.jsx";
 import MemoChild from "./memoChild.jsx";
+import CallbackChild from "./callbackChild.jsx";
 import ContextValue from "./contextValue";
 
 export default function Hooks() {
@@ -70,11 +71,20 @@ export default function Hooks() {
   }, initFormData, init)
 
   /**
-   * 相当于vue的计算属性，依赖于count的值，当count值变化时触发返回值给memo
+   * 返回一个值，相当于vue的计算属性，依赖于count的值，当count值变化时触发返回值给memo
    * */
   const memo = React.useMemo(() => {
     console.log('进入了count计算')
     return count + 1
+  }, [count])
+
+  /**
+   * 返回一个函数，依赖于count的更新
+   * 当除count之外的其他值更新时，不会生成新的函数体
+   * 子组件运行该props函数，返回函数return的值
+   * */
+  const callback = React.useCallback(() => {
+    return count
   }, [count])
 
   return (
@@ -111,6 +121,9 @@ export default function Hooks() {
         <MemoChild count={count} />
       </div>
       {/* useCallback */}
+      <div>
+        <CallbackChild callback={callback} />
+      </div>
     </React.Fragment>
   );
 }

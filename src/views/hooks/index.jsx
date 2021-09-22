@@ -69,9 +69,12 @@ export default function Hooks() {
     throw new Error('error')
   }, initFormData, init)
 
-  const memoizedCallback = React.useCallback(() => {
-    setCount(count + 1)
-    console.log('变化了count')
+  /**
+   * 相当于vue的计算属性，依赖于count的值，当count值变化时触发返回值给memo
+   * */
+  const memo = React.useMemo(() => {
+    console.log('进入了count计算')
+    return count + 1
   }, [count])
 
   return (
@@ -102,7 +105,8 @@ export default function Hooks() {
       </div>
       {/* useCallback */}
       <div>
-        <MemoChild count={count} />
+        { memo }
+        {/*<MemoChild count={count} />*/}
       </div>
     </React.Fragment>
   );

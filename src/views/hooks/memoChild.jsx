@@ -17,5 +17,9 @@ const areEqual = (prevProps, nextProps) => {
 	 * */
 	return prevProps.count === nextProps.count;
 }
-
+/**
+ * 与pureComponent类似，返回值判定相反
+ * memo返回值为true则不更新render
+ * shouldComponentUpdate返回值为false则不更新render
+ * */
 export default React.memo(MemoChild, areEqual);

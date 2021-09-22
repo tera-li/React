@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { Consumer, MyContext } from "./context";
 
 export default class Child extends Component {

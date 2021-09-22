@@ -5,7 +5,7 @@ export default function ContextValue() {
     /**
      * 函数式组件使用context
      */
-    const contextValue = React.useState(MyContext)
+    const contextValue = React.useContext(MyContext)
     console.log(contextValue);
     return (
         <div>

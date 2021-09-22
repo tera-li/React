@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "antd";
-import { Provider } from "./context";
+import {MyContext, Provider} from "./context";
 import Child from "./child.jsx";
+import MemoChild from "./memoChild.jsx";
 import ContextValue from "./contextValue";
 
 export default function Hooks() {
@@ -36,21 +37,73 @@ export default function Hooks() {
    */
   const myRef = React.useRef();
 
-  const addCount = () => {
-    setCount(count + 1);
-  };
+  /**
+   * 函数式组件当中使用useContext，可以直接获取createContext的值
+  */
+  const context = React.useContext(MyContext)
+  console.log(context)
+
+  /**
+   * 使用场景：state是一个数组或者对象
+   *         state的变化很复杂，经常一个操作需要修改很多state
+   *         统一处理复杂的state
+   * */
+  const initFormData = {
+    name: "",
+    age: 18,
+    ethnicity: "汉族"
+  }
+  const init = (initFormData) => {
+    return initFormData
+  }
+  const [reducerState, dispatch] = React.useReducer((state, action) => {
+    if (action.type === 'add') {
+      return { age: state.age + 1 }
+    }
+    if (action.type === 'cut') {
+      return { age: state.age - 1 }
+    }
+    if (action.type === 'reset') {
+      return init(action.payload)
+    }
+    throw new Error('error')
+  }, initFormData, init)
+
+  const memoizedCallback = React.useCallback(() => {
+    setCount(count + 1)
+    console.log('变化了count')
+  }, [count])
+
   return (
     // Fragment可以将子元素分组，而无需向DOM添加额外节点
     <React.Fragment>
+      {/* useRef */}
       <h1 ref={myRef}>这是hooks</h1>
-      <h4>{count}</h4>
-      <Button type="primary" onClick={addCount}>
-        点击加count
-      </Button>
-      <Provider value={111}>
-        <Child />
-      </Provider>
-      <ContextValue></ContextValue>
+      {/* useState */}
+      <div>
+        <h4>{count}</h4>
+        <Button type="primary" onClick={() => setCount(count + 1)}>
+          点击加count
+        </Button>
+      </div>
+      {/* useContext */}
+      <div>
+        <Provider value={111}>
+          <Child />
+        </Provider>
+        <ContextValue />
+      </div>
+      {/* useReducer */}
+      <div>
+        <h4>{reducerState.age}</h4>
+        <Button type='primary' onClick={() => dispatch({type: 'add'})}>加一次reducer</Button>&nbsp;
+        <Button type='primary' onClick={() => dispatch({type: 'cut'})}>减一次reducer</Button>&nbsp;
+        <Button type='primary' onClick={() => dispatch({type: 'reset', payload: initFormData})}>重置reducer</Button>
+      </div>
+      {/* useCallback */}
+      <div>
+        <MemoChild count={count} />
+      </div>
     </React.Fragment>
   );
 }

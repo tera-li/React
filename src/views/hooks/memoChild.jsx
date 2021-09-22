@@ -5,7 +5,7 @@ class MemoChild extends Component {
 		console.log('只有修改count，才会更新render')
 		return (
 			<div>
-				{ 'useCallback,'+ this.props.count }
+				{ 'memo-component：'+ this.props.count }
 			</div>
 		);
 	}

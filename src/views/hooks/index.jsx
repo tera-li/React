@@ -81,10 +81,12 @@ export default function Hooks() {
     // Fragment可以将子元素分组，而无需向DOM添加额外节点
     <React.Fragment>
       {/* useRef */}
-      <h1 ref={myRef}>这是hooks</h1>
+      <div>
+        <h1 ref={myRef}>这是hooks</h1>
+      </div>
       {/* useState */}
       <div>
-        <h4>{count}</h4>
+        <h4>count：{count}</h4>
         <Button type="primary" onClick={() => setCount(count + 1)}>
           点击加count
         </Button>
@@ -103,11 +105,12 @@ export default function Hooks() {
         <Button type='primary' onClick={() => dispatch({type: 'cut'})}>减一次reducer</Button>&nbsp;
         <Button type='primary' onClick={() => dispatch({type: 'reset', payload: initFormData})}>重置reducer</Button>
       </div>
-      {/* useCallback */}
+      {/* useMemo */}
       <div>
-        { memo }
-        {/*<MemoChild count={count} />*/}
+        memo：{ memo }
+        <MemoChild count={count} />
       </div>
+      {/* useCallback */}
     </React.Fragment>
   );
 }

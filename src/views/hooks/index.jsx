@@ -92,6 +92,16 @@ export default function Hooks() {
    * */
   const ref = React.useRef(null)
 
+  /**
+   * 用以需要在useEffect中处理DOM的时候，并且会改变页面的样式，就需要切换到useLayoutEffect函数中执行
+   * callback函数会在DOM更新完成后立即执行
+   * 但是会在浏览器进行任何绘制之前运行完成，会阻塞浏览器的绘制，会看到闪屏
+   * */
+  React.useLayoutEffect(() => {
+    console.log('===============')
+    console.log(count)
+  }, [count])
+
   return (
     // Fragment可以将子元素分组，而无需向DOM添加额外节点
     <React.Fragment>

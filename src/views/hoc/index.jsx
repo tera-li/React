@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
+import ReactDOM from "react-dom";
+import { Button } from "antd";
 
+const Portal = () => {
+	return (
+		ReactDOM.createPortal(<div style={{textAlign: 'center'}}>创建的Portal，插入到body元素中</div>, document.body)
+	)
+}
 // 定义基本组件
 class Hoc extends Component {
 	render() {
@@ -7,6 +14,11 @@ class Hoc extends Component {
 		return (
 			<div>
 				<input name='name' {...this.props.name}/>
+				<div>
+					{/* 通过reactDom卸载组件，会将组件上的事件处理器和state一并清除 */}
+					<Button type='primary' onClick={() => ReactDOM.unmountComponentAtNode(document.getElementById('root'))}>卸载组件</Button>
+				</div>
+				<Portal />
 			</div>
 		);
 	}

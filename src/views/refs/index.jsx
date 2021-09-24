@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 const FancyButton = React.forwardRef((props, ref) => {
     const inputRef = React.useRef()
 
-    // 该hooks与forwardRef配合使用，将默认转发的ref，进行处理过后的实例属性转发给父组件并通过函数控制子组件ref
+    // 该hooks与forwardRef配合使用，将默认转发的ref，进行处理过后的实例属性转发给父组件的ref，父组件通过自定义属性函数控制子组件ref
     React.useImperativeHandle(ref, () => ({
         focus: () => {
           inputRef.current.focus()

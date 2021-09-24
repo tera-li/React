@@ -87,6 +87,11 @@ export default function Hooks() {
     return count
   }, [count])
 
+  /**
+   * 返回ref对象，将对象current指向绑定的DOM元素
+   * */
+  const ref = React.useRef(null)
+
   return (
     // Fragment可以将子元素分组，而无需向DOM添加额外节点
     <React.Fragment>
@@ -123,6 +128,10 @@ export default function Hooks() {
       {/* useCallback */}
       <div>
         <CallbackChild callback={callback} />
+      </div>
+      {/* useRef */}
+      <div>
+        <input ref={ref} onChange={() => console.log(ref.current.value)}/>
       </div>
     </React.Fragment>
   );

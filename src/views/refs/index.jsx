@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 
+// 封装组件时，外部组件可以通过ref直接控制内层组件或元素的行为
 const FancyButton = React.forwardRef((props, ref) => {
+    const inputRef = React.useRef()
+
+    // 该hooks与forwardRef配合使用，将默认转发的ref，进行处理过后的实例属性转发给父组件并通过函数控制子组件ref
+    React.useImperativeHandle(ref, () => ({
+        focus: () => {
+          inputRef.current.focus()
+        },
+        setValue: (val) => {
+          inputRef.current.value = val
+        }
+    }))
     return (
         <>
             <button className="FancyButton">
                 {props.children}
             </button>
-            <input ref={ref}/>
+            <input ref={inputRef}/>
         </>
     );
 })
@@ -15,7 +27,8 @@ const ref = React.createRef()
 
 class Refs extends Component {
     componentDidMount() {
-        ref.current.value = '转发refs，操作dom成功'
+      // console.log(ref.current)
+        ref.current.setValue('转发refs，操作dom')
         setTimeout(() => ref.current.focus(), 2000)
     }
     render() {

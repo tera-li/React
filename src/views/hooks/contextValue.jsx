@@ -1,5 +1,5 @@
 import React from 'react'
-import { MyContext } from "./context";
+import {MyContext} from "./context";
 
 export default function ContextValue() {
     /**

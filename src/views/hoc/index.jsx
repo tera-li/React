@@ -19,6 +19,7 @@ class Hoc extends Component {
 					<Button type='primary' onClick={() => ReactDOM.unmountComponentAtNode(document.getElementById('root'))}>卸载组件</Button>
 				</div>
 				<Portal />
+				<h4 dangerouslySetInnerHTML={{__html: '使用react的innerHtml'}} />
 			</div>
 		);
 	}

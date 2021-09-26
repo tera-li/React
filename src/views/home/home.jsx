@@ -1,6 +1,6 @@
 import React from "react";
 import {Tabs} from "antd";
-import {Route} from "react-router-dom";
+import {Route, useHistory, useLocation, useParams} from "react-router-dom";
 import MyNavLink from "../../router/index";
 import home from "./home.module.css";
 
@@ -39,8 +39,10 @@ export default class Home extends React.Component {
                         <div>{this.state.isLoad}</div>
                         <button onClick={this.handleClick}>点击</button>
                     </TabPane>
-                    <TabPane tab={<MyNavLink to="/home/A">homeA</MyNavLink>} key="2">
-                        <Route path="/home/A">HomeA</Route>
+                    <TabPane tab={<MyNavLink to="/home/A?id=123">homeA</MyNavLink>} key="2">
+                        <Route path="/home/A">
+                            <HomeA />
+                        </Route>
                     </TabPane>
                     <TabPane tab={<MyNavLink to="/home/B">homeB</MyNavLink>} key="3">
                         <Route path="/home/B">HomeB</Route>
@@ -49,4 +51,20 @@ export default class Home extends React.Component {
             </div>
         );
     }
+}
+
+const HomeA = () => {
+    // 返回history对象，可以获取相关参数和调用方法
+    let history = useHistory()
+    // 返回history对象中的location
+    let location = useLocation()
+    let params = useParams()
+    console.log(params)
+    console.log(history)
+    console.log(location)
+    return (
+      <div>
+          <h3>react-router-dom Api</h3>
+      </div>
+    )
 }

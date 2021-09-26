@@ -8,12 +8,18 @@ import { Provider } from "react-redux";
 import "antd/dist/antd.css";
 import "./index.css";
 
+// 用于确认路由跳转的函数
+const getConfirmation = (message = 'Are you sure', callback) => {
+  const allowTransition = window.confirm(message);
+  callback(allowTransition); // 回调询问结果
+}
 ReactDOM.render(
   //检测App组件及子组件存在的问题的工具
   <React.StrictMode>
     {/* 使用provider包裹app，让App组件及所有后代组件都能接收到store */}
     <Provider store={store}>
-      <BrowserRouter>
+      {/* 基准URL，可以设置服务器上的子目录 */}
+      <BrowserRouter basename='/page' getUserConfirmation={getConfirmation}>
         <App />
       </BrowserRouter>
     </Provider>

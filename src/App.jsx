@@ -96,7 +96,7 @@ export default class App extends Component {
                 )
               })
             }
-            <Redirect to="/home" />
+            <Redirect to="/home?id=123" />
           </Switch>
         </Suspense>
       </div>

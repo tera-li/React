@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import "antd/dist/antd.css";
 import "./index.css";
@@ -18,8 +18,10 @@ ReactDOM.render(
   <React.StrictMode>
     {/* 使用provider包裹app，让App组件及所有后代组件都能接收到store */}
     <Provider store={store}>
-      {/* 基准URL，可以设置服务器上的子目录 */}
-      <BrowserRouter basename='/page' getUserConfirmation={getConfirmation}>
+      {/* 基准URL，可以设置服务器上的子目录
+          forceRefresh，路由跳转会刷新整个页面，模拟传统服务器渲染应用程序
+      */}
+      <BrowserRouter basename='/page' getUserConfirmation={getConfirmation} forceRefresh={false}>
         <App />
       </BrowserRouter>
     </Provider>

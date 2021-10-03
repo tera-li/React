@@ -1,0 +1,16 @@
+.box {
+    height: 500px;
+    width: 300px;
+    text-align: center;
+    overflow: scroll;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    border: 1px solid red;
+    /*transition: all 1s linear;*/
+}

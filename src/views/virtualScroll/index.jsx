@@ -10,13 +10,14 @@ class Index extends Component {
     state = {
         height: 60,
         viewList: list.slice(0, 40),
-        offsetY: 0
+        offsetY: 0,
+        itemNumber: 40
     }
     handleScroll = (e) => {
         let sliceNum = Math.floor(e.target.scrollTop / this.state.height)
         this.setState({
             offsetY: e.target.scrollTop,
-            viewList: list.slice(sliceNum, sliceNum + 40)
+            viewList: list.slice(sliceNum, sliceNum + this.state.itemNumber)
         })
     }
 

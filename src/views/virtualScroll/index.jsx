@@ -8,9 +8,13 @@ for (let i = 0; i < 10000; i++) {
 
 class Index extends Component {
     state = {
+        // 每个li的高度
         height: 60,
-        viewList: list.slice(0, 40),
+        // 每次加载的li条数
+        viewList: list.slice(0, this.state.itemNumber),
+        // scroll滚动的高度，并用来进行Y轴的偏移
         offsetY: 0,
+        // 每次加载的条数
         itemNumber: 40
     }
     handleScroll = (e) => {

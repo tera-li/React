@@ -11,7 +11,7 @@ class Index extends Component {
         // 每个li的高度
         height: 60,
         // 每次加载的li条数
-        viewList: list.slice(0, this.state.itemNumber),
+        viewList: list.slice(0, 40),
         // scroll滚动的高度，并用来进行Y轴的偏移
         offsetY: 0,
         // 每次加载的条数

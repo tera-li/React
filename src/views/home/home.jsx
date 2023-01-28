@@ -4,6 +4,7 @@ import { Route, useHistory, useLocation, useParams } from "react-router-dom";
 import MyNavLink from "../../router/index";
 import home from "./home.module.css";
 import Example from "../funcComponent";
+import Hoc from "../funcComponent/classTest";
 
 const { TabPane } = Tabs;
 
@@ -11,6 +12,7 @@ export default class Home extends React.Component {
   state = {
     isLoad: "false",
   };
+  name = "Josh Perez";
   handleClick = () => {
     // 在事件处理函数中调用setState将会是异步的
     this.setState({
@@ -21,7 +23,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     // 使用setState更新后不会触发挂载声明周期钩子
-    console.log(this.state.isLoad);
+    console.log(this.name);
   }
 
   render() {
@@ -46,11 +48,19 @@ export default class Home extends React.Component {
           >
             <Route path="/home/A">
               <HomeA />
-              <Example />
             </Route>
           </TabPane>
-          <TabPane tab={<MyNavLink to="/home/B">homeB</MyNavLink>} key="3">
+          <TabPane
+            tab={<MyNavLink to="/home/B">{this.name}</MyNavLink>}
+            key="3"
+          >
             <Route path="/home/B">HomeB</Route>
+          </TabPane>
+          <TabPane tab="class" key="4">
+            <Hoc job="工作"></Hoc>
+          </TabPane>
+          <TabPane tab="hook" key="5">
+            <Example />
           </TabPane>
         </Tabs>
       </div>

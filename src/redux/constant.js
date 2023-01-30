@@ -1,0 +1,6 @@
+export default {
+  INCREASE: "INCREASE",
+  DECREASE: "DECREASE",
+  TYPE_OPEN: "TYPE_OPEN",
+  TYPE_CLOSE: "TYPE_CLOSE",
+};

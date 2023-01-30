@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
-import store from "./store/store";
+import store from "./redux/store";
 import App from "./App";
 import { BrowserRouter, HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import "antd/dist/antd.css";
 import "./index.css";
+import Main from "./main";
 
 // 用于确认路由跳转的函数
-const getConfirmation = (message = 'Are you sure', callback) => {
+const getConfirmation = (message = "Are you sure", callback) => {
   const allowTransition = window.confirm(message);
   callback(allowTransition); // 回调询问结果
-}
+};
 ReactDOM.render(
   //检测App组件及子组件存在的问题的工具
   <React.StrictMode>
@@ -21,9 +22,7 @@ ReactDOM.render(
       {/* 基准URL，可以设置服务器上的子目录
           forceRefresh，路由跳转会刷新整个页面，模拟传统服务器渲染应用程序
       */}
-      <BrowserRouter basename='/page' getUserConfirmation={getConfirmation} forceRefresh={false}>
-        <App />
-      </BrowserRouter>
+      <Main />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

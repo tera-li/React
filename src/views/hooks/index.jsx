@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import { MyContext, Provider } from "./context";
+import MyContext from "./context";
 import Child from "./child.jsx";
 import MemoChild from "./memoChild.jsx";
 import CallbackChild from "./callbackChild.jsx";
@@ -124,9 +124,9 @@ export default function Hooks() {
       </div>
       {/* useContext */}
       <div>
-        <Provider value={"useContext"}>
+        <MyContext.Provider value={"useContext"}>
           <Child />
-        </Provider>
+        </MyContext.Provider>
         <ContextValue />
       </div>
       {/* useReducer */}

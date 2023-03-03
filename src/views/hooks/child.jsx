@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Consumer, MyContext } from "./context";
+import MyContext from "./context";
 import emitter from "./events";
 
 export default class Child extends Component {
@@ -27,11 +27,11 @@ export default class Child extends Component {
     console.log(MyContext);
     return (
       <div>
-        <Consumer>
+        <MyContext.Consumer>
           {(value) => {
             return `这是context传的值${value}`;
           }}
-        </Consumer>
+        </MyContext.Consumer>
       </div>
     );
   }
